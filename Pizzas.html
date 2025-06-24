@@ -28,6 +28,15 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        /* -- INICIO DE LA MODIFICACIÓN: CSS para el fondo del Hero -- */
+        .hero-bg {
+            /* REEMPLAZA ESTA URL con la ruta de tu imagen de fondo. */
+            /* Ejemplo: background-image: url('mi-fondo-de-pizza.jpg'); */
+            background-image: url('images/local.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* -- FIN DE LA MODIFICACIÓN -- */
         .modal {
             display: none; 
             position: fixed;
@@ -121,14 +130,20 @@
         <span id="cart-count-fab" class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 bg-accent-red text-xs font-bold text-white rounded-full h-6 w-6 flex items-center justify-center">0</span>
     </button>
 
-    <!-- Sección Principal (Hero) -->
-    <section id="hero" class="bg-primary text-white py-20">
-        <div class="container mx-auto px-6 text-center">
+    <!-- INICIO DE LA MODIFICACIÓN: Sección Principal (Hero) -->
+    <section id="hero" class="relative text-white py-20 hero-bg">
+        <!-- Capa de superposición oscura para legibilidad del texto -->
+        <!-- Puedes ajustar la opacidad cambiando "opacity-50" (50%) a "opacity-60", "opacity-70", etc. -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        
+        <!-- Contenido (ahora con posición relativa para estar sobre la capa de superposición) -->
+        <div class="relative container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">¡Las Mejores Pizzas de Holguín!</h1>
             <p class="text-lg md:text-xl mb-8">Hechas con amor y los ingredientes más frescos. Pide por WhatsApp.</p>
             <a href="#menu" class="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Ver Menú</a>
         </div>
     </section>
+    <!-- FIN DE LA MODIFICACIÓN -->
 
     <!-- Catálogo de Productos (Menú) -->
     <section id="menu" class="py-16">
@@ -281,7 +296,7 @@
     // --- Datos de Productos ---
     const products = {
         pizzasNapolitanas: [
-            { id: 'pn1', name: 'Pizza Napolitana', price: 150, description: 'Clásica pizza napolitana individual.', image: 'images/pizza%20napolitana%20cubana.jpg' }
+            { id: 'pn1', name: 'Pizza Napolitana', price: 150, description: 'Clásica pizza napolitana individual.', image: 'images/pizza napolitana cubana.jpg' }
         ],
         pizzasFamiliares: [
             { id: 'pf1', name: 'Pizza Familiar', price: 3000, description: 'Pizza grande para compartir en familia.', image: 'images/pizzaFamiliar.jpg' }
