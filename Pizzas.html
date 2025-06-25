@@ -211,7 +211,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">Tu Número de Teléfono (para confirmación):</label>
-                    <input type="tel" id="telefono" name="telefono" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required placeholder="Ej: 5xxxxxxx">
+                    <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8,}" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required placeholder="Ej: 53978329">
                 </div>
                 <div class="mb-6">
                     <p class="text-sm text-gray-600"><strong>ID del Pedido:</strong> <span id="order-id-form" class="font-mono"></span></p>
@@ -301,18 +301,18 @@
             { id: 'pf1', name: 'Pizza Familiar', price: 3000, description: 'Pizza grande para compartir en familia.', image: 'images/pizzaFamiliar.jpg' }
         ],
         bebidas: [
-            { id: 'b1', name: 'Refresco de Lata (Cola)', price: 240, description: 'Lata de refresco sabor cola.', image: 'https://placehold.co/300x200/F44336/FFFFFF?text=Refresco+Cola' },
-            { id: 'b2', name: 'Refresco de Lata (Piña)', price: 240, description: 'Lata de refresco sabor piña.', image: 'https://placehold.co/300x200/FFEB3B/000000?text=Refresco+Piña' },
-            { id: 'b3', name: 'Refresco de Lata (Limón)', price: 240, description: 'Lata de refresco sabor limón.', image: 'https://placehold.co/300x200/CDDC39/000000?text=Refresco+Limón' },
-            { id: 'b4', name: 'Refresco de Lata (Naranja)', price: 240, description: 'Lata de refresco sabor naranja.', image: 'https://placehold.co/300x200/FF9800/000000?text=Refresco+Naranja' },
-            { id: 'b5', name: 'Malta de Lata (Santa Isabel)', price: 260, description: 'Malta en lata marca Santa Isabel.', image: 'https://placehold.co/300x200/795548/FFFFFF?text=Malta+Santa+Isabel' },
-            { id: 'b6', name: 'Malta Guajira', price: 300, description: 'Malta marca Guajira.', image: 'https://placehold.co/300x200/8D6E63/FFFFFF?text=Malta+Guajira' },
-            { id: 'b7', name: 'Cerveza Parranda', price: 220, description: 'Cerveza nacional Parranda.', image: 'https://placehold.co/300x200/FFC107/000000?text=Cerveza+Parranda' },
-            { id: 'b8', name: 'Cerveza Mayabe', price: 220, description: 'Cerveza nacional Mayabe.', image: 'https://placehold.co/300x200/FFD54F/000000?text=Cerveza+Mayabe' },
+            { id: 'b1', name: 'Refresco de Lata (Cola)', price: 240, description: 'Lata de refresco sabor cola.', image: 'images/brizocola.png' },
+            { id: 'b2', name: 'Refresco de Lata (Piña)', price: 240, description: 'Lata de refresco sabor piña.', image: 'images/brizopiña.png' },
+            { id: 'b3', name: 'Refresco de Lata (Limón)', price: 240, description: 'Lata de refresco sabor limón.', image: 'images/brizolimon.png' },
+            { id: 'b4', name: 'Refresco de Lata (Naranja)', price: 240, description: 'Lata de refresco sabor naranja.', image: 'images/brizonaranja.png' },
+            { id: 'b5', name: 'Malta de Lata (Santa Isabel)', price: 260, description: 'Malta en lata marca Santa Isabel.', image: 'images/maltaisabel.png' },
+            { id: 'b6', name: 'Malta Guajira', price: 300, description: 'Malta marca Guajira.', image: 'images/GUAJIRA.png' },
+            { id: 'b7', name: 'Cerveza Parranda', price: 220, description: 'Cerveza nacional Parranda.', image: 'images/parranda.png' },
+            { id: 'b8', name: 'Cerveza Mayabe', price: 220, description: 'Cerveza nacional Mayabe.', image: 'images/Mayabe.png' },
             { id: 'b9', name: 'Jugo Manzana', price: 200, description: 'Jugo de manzana.', image: 'https://placehold.co/300x200/F44336/FFFFFF?text=Jugo+Manzana' },
             { id: 'b10', name: 'Jugo Mango', price: 200, description: 'Jugo de mango.', image: 'https://placehold.co/300x200/FF9800/FFFFFF?text=Jugo+Mango' },
             { id: 'b11', name: 'Jugo Melocotón', price: 200, description: 'Jugo de melocotón.', image: 'https://placehold.co/300x200/FFB74D/000000?text=Jugo+Melocotón' },
-            { id: 'b12', name: 'Pru Frío', price: 50, description: 'Bebida refrescante Pru.', image: 'https://placehold.co/300x200/4CAF50/FFFFFF?text=Pru+Frío' }
+            { id: 'b12', name: 'Pru Frío', price: 50, description: 'Bebida refrescante Pru.', image: 'images/pru.png' }
         ],
         agregados: [
             { id: 'a1', name: 'Agregado de Jamón', price: 70, description: 'Porción extra de jamón.', image: 'https://placehold.co/300x200/E91E63/FFFFFF?text=Jamón' },
@@ -577,7 +577,7 @@
         allOrders.push(newOrder); 
         sendOrderViaWhatsApp(newOrder);
     });
-
+    
     function sendOrderViaWhatsApp(order) {
         let message = `*Nuevo Pedido de Pizzería Colonizadores*\n\n`;
         message += `*ID Pedido:* ${order.id}\n`;
@@ -603,6 +603,7 @@
             showSection('menu'); 
         }, 1500);
         renderAdminOrders(); 
+        
     }
 
     // --- Lógica del Panel de Administración (Simulado) ---
