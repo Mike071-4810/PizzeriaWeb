@@ -21,16 +21,19 @@
             { id: 'b6', name: 'Malta Guajira', price: 300, description: 'Malta marca Guajira.', image: 'images/GUAJIRA.png' },
             { id: 'b7', name: 'Cerveza Parranda', price: 220, description: 'Cerveza nacional Parranda.', image: 'images/parranda.png' },
             { id: 'b8', name: 'Cerveza Mayabe', price: 220, description: 'Cerveza nacional Mayabe.', image: 'images/Mayabe.png' },
-            { id: 'b9', name: 'Jugo Manzana', price: 200, description: 'Jugo de manzana.', image: 'https://placehold.co/300x200/F44336/FFFFFF?text=Jugo+Manzana' },
-            { id: 'b10', name: 'Jugo Mango', price: 200, description: 'Jugo de mango.', image: 'https://placehold.co/300x200/FF9800/FFFFFF?text=Jugo+Mango' },
-            { id: 'b11', name: 'Jugo Melocotón', price: 200, description: 'Jugo de melocotón.', image: 'https://placehold.co/300x200/FFB74D/000000?text=Jugo+Melocotón' },
+            { id: 'b9', name: 'Jugo Manzana', price: 200, description: 'Jugo de manzana.', image: 'images/jugomanzana.png' },
+            { id: 'b10', name: 'Jugo Mango', price: 200, description: 'Jugo de mango.', image: 'images/jugomango.png' },
+            { id: 'b11', name: 'Jugo Melocotón', price: 200, description: 'Jugo de melocotón.', image: 'images/jugomelocoton.png' },
             { id: 'b12', name: 'Pru Frío', price: 50, description: 'Bebida refrescante Pru.', image: 'images/pru.png' }
         ],
         agregados: [
-            { id: 'a1', name: 'Agregado de Jamón', price: 70, description: 'Porción extra de jamón.', image: 'https://placehold.co/300x200/E91E63/FFFFFF?text=Jamón' },
-            { id: 'a2', name: 'Agregado de Queso', price: 70, description: 'Porción extra de queso.', image: 'https://placehold.co/300x200/FFEB3B/000000?text=Queso' },
-            { id: 'a3', name: 'Agregado de Ají Pimiento', price: 70, description: 'Porción extra de ají pimiento.', image: 'https://placehold.co/300x200/4CAF50/FFFFFF?text=Ají+Pimiento' }
-        ]
+            { id: 'a1', name: 'Agregado de Jamón', price: 70, description: 'Porción extra de jamón.', image: 'images/jamon.png' },
+            { id: 'a2', name: 'Agregado de Queso', price: 70, description: 'Porción extra de queso.', image: 'images/queso.png' },
+            { id: 'a3', name: 'Agregado de Ají Pimiento', price: 70, description: 'Porción extra de ají pimiento.', image: 'images/pimiento.jpg' }
+        ],
+        otros: [
+            {id: 'a1', name:'Café Bryderk 500g', price: 1200, description:'Café Español de la mejor calidad y sabor', image:'images/cafe.png'}
+        ],
     };
 
     // --- Selectores del DOM ---
@@ -38,6 +41,7 @@
     const familiaresContainer = document.getElementById('familiares-pizzas');
     const bebidasContainer = document.getElementById('bebidas-container');
     const agregadosContainer = document.getElementById('agregados-container');
+    const otrosContainer = document.getElementById('otros-container');
     
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalElement = document.getElementById('cart-total');
@@ -135,6 +139,7 @@
         renderCategory(familiaresContainer, products.pizzasFamiliares, 'pizza');
         renderCategory(bebidasContainer, products.bebidas, 'bebida');
         renderCategory(agregadosContainer, products.agregados, 'agregado');
+        renderCategory(otrosContainer, products.otros, 'otros');
         
         document.querySelectorAll('.add-to-cart-btn').forEach(button => {
             button.addEventListener('click', handleAddToCart);
